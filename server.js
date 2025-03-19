@@ -24,12 +24,20 @@ app.post('/submit', upload.single('fileUpload'), (req, res) => {
     const formData = req.body;
     const fileData = req.file;
 
+    // Replace blank fields with "None" or "Blank"
+    for (const key in formData) {
+        if (formData[key] === '') {
+            formData[key] = 'None'; // or 'Blank'
+        }
+    }
+
     // Save form data and file metadata to database here (not shown in this example)
 
     // Respond with the file URL for download
     res.json({
         message: 'Form submitted successfully!',
-        fileUrl: `/download/${fileData.filename}`
+        data: formData,
+        fileUrl: fileData ? `/download/${fileData.filename}` : null
     });
 });
 
