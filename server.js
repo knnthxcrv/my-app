@@ -1,10 +1,12 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up storage engine for Multer
 const storage = multer.diskStorage({
@@ -16,9 +18,6 @@ const storage = multer.diskStorage({
 
 // Initialize upload variable
 const upload = multer({ storage: storage });
-
-// Serve static files
-app.use(express.static('public'));
 
 // Handle form submission
 app.post('/submit', upload.single('fileUpload'), (req, res) => {
