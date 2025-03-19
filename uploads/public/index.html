@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with File Upload and Download</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Form Submission</h1>
+    <form id="dataForm" enctype="multipart/form-data">
+        <div class="form-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Created -->
+                <label for="created">Created:</label>
+                <input type="date" id="created" name="created" required>
+
+                <!-- Agency -->
+                <label for="agency">Agency:</label>
+                <input type="text" id="agency" name="agency" required>
+
+                <!-- Requested By -->
+                <label for="requestedBy">Requested By:</label>
+                <input type="text" id="requestedBy" name="requestedBy" required>
+
+                <!-- Market -->
+                <label for="market">Market:</label>
+                <input type="text" id="market" name="market" required>
+
+                <!-- Agent Name -->
+                <label for="agentName">Agent Name:</label>
+                <input type="text" id="agentName" name="agentName" required>
+
+                <!-- EID -->
+                <label for="eid">EID:</label>
+                <input type="text" id="eid" name="eid" required>
+
+                <!-- Return Label Street Address -->
+                <label for="returnLabelStreetAddress">Return Label Street Address:</label>
+                <input type="text" id="returnLabelStreetAddress" name="returnLabelStreetAddress" required>
+
+                <!-- City -->
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+
+                <!-- State -->
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+
+                <!-- Zip Code -->
+                <label for="zipCode">Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Cell Phone -->
+                <label for="cellPhone">Cell Phone:</label>
+                <input type="tel" id="cellPhone" name="cellPhone" required>
+
+                <!-- Email Address -->
+                <label for="emailAddress">Email Address:</label>
+                <input type="email" id="emailAddress" name="emailAddress" required>
+
+                <!-- Term Date -->
+                <label for="termDate">Term Date:</label>
+                <input type="date" id="termDate" name="termDate" required>
+
+                <!-- Packaging Requested (Checkbox) -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="packagingRequested" name="packagingRequested">
+                    <label for="packagingRequested">Packaging Requested</label>
+                </div>
+
+                <!-- Package UPS Tracker -->
+                <label for="packageUPSTracker">Package UPS Tracker:</label>
+                <input type="text" id="packageUPSTracker" name="packageUPSTracker" required>
+
+                <!-- Agency Collection Notes -->
+                <label for="agencyCollectionNotes">Agency Collection Notes:</label>
+                <textarea id="agencyCollectionNotes" name="agencyCollectionNotes" rows="4" required></textarea>
+
+                <!-- Training or Production -->
+                <label for="trainingOrProduction">Training or Production:</label>
+                <select id="trainingOrProduction" name="trainingOrProduction" required>
+                    <option value="Training">Training</option>
+                    <option value="Production">Production</option>
+                </select>
+
+                <!-- Class Code -->
+                <label for="classCode">Class Code:</label>
+                <input type="text" id="classCode" name="classCode" required>
+
+                <!-- Duplicate or 2nd Request (Checkbox) -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="duplicateOr2ndRequest" name="duplicateOr2ndRequest">
+                    <label for="duplicateOr2ndRequest">Duplicate or 2nd Request</label>
+                </div>
+
+                <!-- UPS Tracking # -->
+                <label for="upsTrackingNumber">UPS Tracking #:</label>
+                <input type="text" id="upsTrackingNumber" name="upsTrackingNumber" required>
+
+                <!-- Label Deactivated (Checkbox) -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="labelDeactivated" name="labelDeactivated">
+                    <label for="labelDeactivated">Label Deactivated</label>
+                </div>
+
+                <!-- Shipping Label Status -->
+                <label for="shippingLabelStatus">Shipping Label Status:</label>
+                <input type="text" id="shippingLabelStatus" name="shippingLabelStatus" required>
+
+                <!-- Radial Notes -->
+                <label for="radialNotes">Radial Notes:</label>
+                <textarea id="radialNotes" name="radialNotes" rows="4" required></textarea>
+
+                <!-- Date of Update -->
+                <label for="dateOfUpdate">Date of Update:</label>
+                <input type="date" id="dateOfUpdate" name="dateOfUpdate" required>
+            </div>
+        </div>
+
+        <!-- File Upload -->
+        <div class="file-upload">
+            <label for="fileUpload">Upload File:</label>
+            <input type="file" id="fileUpload" name="fileUpload">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+
+        <!-- File Download Link -->
+        <div class="file-download">
+            <p>Download uploaded file: <a href="/download" id="downloadLink">Download</a></p>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
