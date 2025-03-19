@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Records</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>View Records</h1>
+    <div id="records"></div>
+
+    <script>
+        // Fetch records from the server
+        fetch('/records')
+            .then(response => response.json())
+            .then(data => {
+                const recordsDiv = document.getElementById('records');
+                data.forEach(record => {
+                    const recordDiv = document.createElement('div');
+                    recordDiv.className = 'record';
+                    recordDiv.innerHTML = `
+                        <h2>Record ID: ${record._id}</h2>
+                        <p><strong>Created:</strong> ${record.created}</p>
+                        <p><strong>Agency:</strong> ${record.agency}</p>
+                        <p><strong>Requested By:</strong> ${record.requestedBy}</p>
+                        <p><strong>Market:</strong> ${record.market}</p>
+                        <p><strong>Agent Name:</strong> ${record.agentName}</p>
+                        <p><strong>EID:</strong> ${record.eid}</p>
+                        <p><strong>Return Label Street Address:</strong> ${record.returnLabelStreetAddress}</p>
+                        <p><strong>City:</strong> ${record.city}</p>
+                        <p><strong>State:</strong> ${record.state}</p>
+                        <p><strong>Zip Code:</strong> ${record.zipCode}</p>
+                        <p><strong>Cell Phone:</strong> ${record.cellPhone}</p>
+                        <p><strong>Email Address:</strong> ${record.emailAddress}</p>
+                        <p><strong>Term Date:</strong> ${record.termDate}</p>
+                        <p><strong>Packaging Requested:</strong> ${record.packagingRequested}</p>
+                        <p><strong>Package UPS Tracker:</strong> ${record.packageUPSTracker}</p>
+                        <p><strong>Agency Collection Notes:</strong> ${record.agencyCollectionNotes}</p>
+                        <p><strong>Training or Production:</strong> ${record.trainingOrProduction}</p>
+                        <p><strong>Class Code:</strong> ${record.classCode}</p>
+                        <p><strong>Duplicate or 2nd Request:</strong> ${record.duplicateOr2ndRequest}</p>
+                        <p><strong>UPS Tracking #:</strong> ${record.upsTrackingNumber}</p>
+                        <p><strong>Label Deactivated:</strong> ${record.labelDeactivated}</p>
+                        <p><strong>Shipping Label Status:</strong> ${record.shippingLabelStatus}</p>
+                        <p><strong>Radial Notes:</strong> ${record.radialNotes}</p>
+                        <p><strong>Date of Update:</strong> ${record.dateOfUpdate}</p>
+                        <p><strong>File URL:</strong> <a href="${record.fileUrl}">Download</a></p>
+                        <hr>
+                    `;
+                    recordsDiv.appendChild(recordDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching records:', error);
+            });
+    </script>
+</body>
+</html>
